@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 or More Squares</title>
+</head>
+<body onload="draw()">
+    <canvas id="sketch" width="300" height="300"></canvas>
+    <script>
+        // function draw() {
+        //     var sketch = document.getElementById("sketch");
+        //     var context = sketch.getContext("2d");
+
+        //     context.fillStyle = "#B57114" // hex code
+
+        //     for(var i = 0; i <= 4; i++) {
+        //         context.fillRect((i * 25), 20, 20, 20); // context.fillRect(x, y, width, height);
+        //         // console.log(i * 25)
+        //     }
+        // }
+
+        function draw() {
+            var sketch = document.getElementById("sketch");
+            var context = sketch.getContext("2d");
+
+            for(var i = 0; i <= 20; i++) {
+                var side = getRandomInt(100);
+                context.fillStyle = randomColors(colors);
+
+                // context.fillRect(x, y, width, height);
+                context.fillRect((getRandomInt(300)), (getRandomInt(300)), (side/4), (side/2));
+                // console.log(i * 25)
+            }
+        }
+
+        // source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        // source: https://www.slingacademy.com/article/how-to-generate-random-color-in-javascript/#google_vignette
+        const randomColors = (colorArray) => {
+            const randomIndex = Math.floor(Math.random() * colorArray.length);
+            return colorArray[randomIndex];
+        }
+
+        // only these colors are allowed
+        const colors = ['pink', 'orange', 'yellow', 'purple', 'green', 'plum', 'teal'];
+    </script>
+</body>
+</html>
